@@ -62,6 +62,22 @@
 
             color: #000000;
         }
+        .titlelogin {
+            position: absolute;
+            width: auto;
+            height: 32px;
+            left: 1071px;
+            top: 34px;
+
+            font-style: normal;
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 40px;
+
+            margin-left: 230px;
+
+            color: #000000;
+        }
 
         .mytitle {
             width: 100%;
@@ -78,13 +94,6 @@
         .register {
 
             padding: 100px;
-        }
-
-        .buger {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-gap: 20px;
-            padding: 20px
         }
 
 
@@ -111,7 +120,7 @@
                                                 <div id="desc" class="card-text">${desc}</div>
                                             </div>
                                         </div>`
-                    $('#reviews_list').append(temp_html)
+                        $('#reviews_list').append(temp_html)
                     }
                 }
             })
@@ -138,6 +147,10 @@
 <div class="nav">
     <h1 class="titlepont">🍔햄최몇</h1>
     <h1 class="titlerecom">추천 목록</h1>
+    <div>
+      <h1></h1></div>
+        <a href="/login" class="titlelogin">로그인</a>
+
 </div>
 <div class="mytitle">
     <h1>🍔햄최몇?</h1>
