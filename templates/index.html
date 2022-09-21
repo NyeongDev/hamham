@@ -15,11 +15,17 @@
 
     <title>햄최몇</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 
     <style>
         * {
-            font-family: 'Gowun Dodum', sans-serif;
+            /*폰트*/
+            font-family: 'Jua', sans-serif;
+            /*기본 꾸밈 설정 제거*/
+            padding: 0;
+            margin: 0;
+            border: none;
         }
 
         .nav {
@@ -48,20 +54,6 @@
             color: #000000;
         }
 
-        .titlerecom {
-            position: absolute;
-            width: auto;
-            height: 32px;
-            left: 1071px;
-            top: 34px;
-
-            font-style: normal;
-            font-weight: 400;
-            font-size: 32px;
-            line-height: 40px;
-
-            color: #000000;
-        }
         .titlelogin {
             position: absolute;
             width: auto;
@@ -87,13 +79,31 @@
             background-color: transparent;
             box-shadow: 0px 0px 3px 0px gray;
 
-            padding: 25px 150px
+            padding: 25px 150px;
 
         }
 
         .register {
+            margin-top: 100px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
 
-            padding: 100px;
+        .btn-go-post {
+            height: 61px;
+            width: 200px;
+            background-color: #FFC93C;
+            color: black;
+            border: none;
+            border-radius: 50px;
+            align-self: flex-end;
+            font-size: 32px;
+            font-family: 'Jua', sans-serif;
+            justify-content: flex-end;
+            text-align: center;
+            padding-top: 8px;
         }
 
 
@@ -144,26 +154,18 @@
 </head>
 
 <body>
-<div class="nav">
-    <h1 class="titlepont">🍔햄최몇</h1>
-    <h1 class="titlerecom">추천 목록</h1>
-    <div>
-      <h1></h1></div>
-        <a href="/login" class="titlelogin">로그인</a>
-
-</div>
-<div class="mytitle">
-    <h1>🍔햄최몇?</h1>
-</div>
-<div class="register">
-    <a href="/post">
-        <div class="d-grid gap-2 col-7 mx-auto">
-            <button class="btn btn-warning" type="button">햄버거 추천하기</button>
+    <div class="nav">
+        <h1 class="titlepont">🍔햄최몇</h1>
+        <a href="/login" class="titlelogin">로그인 및 회원가입</a>
+    </div>
+    <div class="mytitle">
+        <h1>🍔햄최몇?</h1>
+    </div>
+        <div class="register">
+            <a class="btn-go-post" href="/post" type="submit">버거 추천하기</a>
         </div>
-    </a>
-</div>
-<main id="reviews-list" class="reviews-list">
-</main>
+    <main id="reviews-list" class="reviews-list">
+    </main>
 </body>
 
 </html>
