@@ -72,7 +72,6 @@ def sign_in():
 # 회원가입
 @app.route('/sign_up/save', methods=['POST'])
 def sign_up():
-    print("!!!")
     username_receive = request.form['username_give']
     password_receive = request.form['password_give']
     password_hash = hashlib.sha256(password_receive.encode('utf-8')).hexdigest()
@@ -81,7 +80,6 @@ def sign_up():
         "password": password_hash,  # 비밀번호
         "profile_name": username_receive,  # 프로필 이름 기본값은 아이디
     }
-    print(doc)
     db.users.insert_one(doc)
     return jsonify({'result': 'success'})
     return "success"

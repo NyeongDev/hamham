@@ -26,6 +26,7 @@
             padding: 0;
             margin: 0;
             border: none;
+            text-decoration: none;
         }
 
         .nav {
@@ -106,7 +107,15 @@
             padding-top: 8px;
         }
 
+        .reviews_list {
+            background-color: #FFC93C;
+            margin: 10px;
+            display: grid;
+        }
 
+        .card_body {
+
+        }
     </style>
     <script>
         $(document).ready(function () {
@@ -125,13 +134,15 @@
                         let title = rows[i]['title']
                         let desc = rows[i]['desc']
 
-                        let temp_html = `<div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                                            <div class="card-body">
-                                                <div id="title" class="card-title">${title}</div>
-                                                <div id="desc" class="card-text">${desc}</div>
+                        let temp_html = `<div class="col">
+                                            <div class="card h-100">
+                                              <div class="card-body">
+                                                <h5 class="card-title">${title}</h5>
+                                                <p class="card-text">${desc}</p>
+                                              </div>
                                             </div>
-                                        </div>`
-                        $('#reviews_list').append(temp_html)
+                                          </div>`
+                        $('#cards-box').append(temp_html)
                     }
                 }
             })
@@ -156,7 +167,7 @@
 
 <body>
     <div class="nav">
-        <h1 class="titlepont">🍔햄최몇</h1>
+        <a href="/" class="titlepont">🍔햄최몇</a>
         <a href="/login" class="titlelogin">로그인 및 회원가입</a>
     </div>
     <div class="mytitle">
@@ -165,7 +176,9 @@
         <div class="register">
             <a class="btn-go-post" href="/post" type="submit">버거 추천하기</a>
         </div>
-    <main id="reviews-list" class="reviews-list">
+    <main id="reviews_list" class="reviews_list">
+        <div class="row row-cols-1 row-cols-md-4 g-4" id="cards-box">
+        </div>
     </main>
 </body>
 
