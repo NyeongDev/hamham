@@ -1,0 +1,121 @@
+* {
+    /*폰트*/
+    font-family: 'Jua', sans-serif;
+    /*html에서 제공하는 기본 꾸밈 설정 제거*/
+    padding: 0;
+    margin: 0;
+    border: none;
+    text-decoration: none;
+}
+
+/*post 시작*/
+.posting-box {
+    width: 748px;
+    height: 676px;
+    margin: 100px auto;
+    margin-top: 100px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px 2px rgb(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.posting-box .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.posting-box h1 {
+    margin-bottom: 47px;
+}
+
+.posting-box input {
+    background-color: #FFC93C;
+    width: 470px;
+    height: 63px;
+    margin-bottom: 47px;
+    border-radius: 50px;
+    padding: 3px 30px 0 30px;
+    font-size: 32px;
+}
+
+.posting-box button {
+    height: 61px;
+    width: 147px;
+    background-color: #FFC93C;
+    color: black;
+    border: none;
+    border-radius: 50px;
+    align-self: flex-end;
+    margin-right: 120px;
+    font-size: 32px;
+}
+
+.posting-box button:focus {
+    background-color: #FFC93C;
+}
+
+.wrap {
+    width: 900px;
+    margin: auto;
+}
+.container {
+    padding-left: 50px;
+}
+/*post 끝*/
+
+/*list 시작*/
+.reviews {
+    margin: 20px auto 0px auto;
+    width: 95%;
+    max-width: 1200px;
+}
+.reviews-card {
+    border: solid 1px black;
+}
+ /*list 끝*/
+
+
+
+ .mytitle {
+            position: absolute;
+            width: 100%;
+            height: 100px;
+            left: 0px;
+            top: 0px;
+
+            background: #FFFFFF;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+.titlepont {
+            position: absolute;
+            width: auto;
+            height: 32px;
+            left: 319px;
+            top: 34px;
+
+            font-style: normal;
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 40px;
+
+            color: #000000;
+        }
+
+.titlerecom {
+            position: absolute;
+            width: auto;
+            height: 32px;
+            left: 1071px;
+            top: 34px;
+
+            font-style: normal;
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 40px;
+
+            color: #000000;
+        }
