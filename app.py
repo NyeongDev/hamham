@@ -12,7 +12,11 @@ client = MongoClient('mongodb+srv://hello:sparta@cluster0.re0stef.mongodb.net/?r
 db = client.dbsparta_plus_week4
 
 app = Flask(__name__)
-app.config["TEMPLATES_AUTO_RELOAD"] = True
+app.config.update(
+    ENV="development",
+    DEBUG=True,
+    TEMPLATES_AUTO_RELOAD=True
+)
 SECRET_KEY = 'SPARTA'
 
 
@@ -32,7 +36,8 @@ def tk():
     token_receive = request.cookies.get('mytoken')
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-        return render_template('index.html')
+        user_info = db.users.find_one({"username": payload["id"]})
+        return render_template('index.html', user_info=user_info)
     except jwt.ExpiredSignatureError:
         return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
     except jwt.exceptions.DecodeError:
@@ -67,6 +72,7 @@ def sign_in():
 # 회원가입
 @app.route('/sign_up/save', methods=['POST'])
 def sign_up():
+    print("!!!")
     username_receive = request.form['username_give']
     password_receive = request.form['password_give']
     password_hash = hashlib.sha256(password_receive.encode('utf-8')).hexdigest()
@@ -75,8 +81,11 @@ def sign_up():
         "password": password_hash,  # 비밀번호
         "profile_name": username_receive,  # 프로필 이름 기본값은 아이디
     }
+    print(doc)
     db.users.insert_one(doc)
     return jsonify({'result': 'success'})
+    return "success"
+
 
 # 포스트 페이지
 @app.route('/post')
