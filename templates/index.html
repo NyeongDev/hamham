@@ -105,6 +105,7 @@
             justify-content: flex-end;
             text-align: center;
             padding-top: 8px;
+            box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.25);
         }
 
         .reviews_list {
@@ -113,6 +114,16 @@
 
         .card-body {
             background-color: #FFC93C;
+            border-radius: 50px;
+            box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            width: 189px;
+            margin: 40px;
+            padding: 20px;
+        }
+
+        .card-title {
+            margin-bottom: 10px;
         }
     </style>
     <script>
@@ -133,13 +144,11 @@
                         let desc = rows[i]['desc']
 
                         let temp_html = `<div class="col">
-                                            <div class="card h-100">
-                                              <div class="card-body">
+                                            <div class="card-body">
                                                 <h5 class="card-title">${title}</h5>
                                                 <p class="card-text">${desc}</p>
                                               </div>
-                                            </div>
-                                          </div>`
+                                        </div>`
                         $('#cards-box').append(temp_html)
                     }
                 }
@@ -175,7 +184,7 @@
             <a class="btn-go-post" href="/post" type="submit">버거 추천하기</a>
         </div>
     <main id="reviews_list" class="reviews_list">
-        <div class="row row-cols-1 row-cols-md-4 g-4" id="cards-box">
+        <div class="row row-cols-1 row-cols-md-4" id="cards-box">
         </div>
     </main>
 </body>
