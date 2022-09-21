@@ -8,11 +8,55 @@
     text-decoration: none;
 }
 
+/*Nav bar*/
+    .nav {
+        position: absolute;
+        width: 100%;
+        height: 100px;
+        left: 0px;
+        top: 0px;
+
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .titlepont {
+        position: absolute;
+        width: auto;
+        height: 32px;
+        left: 319px;
+        top: 34px;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 40px;
+
+        color: #000000;
+    }
+
+    .titlelogin {
+        position: absolute;
+        width: auto;
+        height: 32px;
+        left: 1071px;
+        top: 34px;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 40px;
+
+        margin-left: 230px;
+
+        color: #000000;
+    }
+
 /*post 시작*/
 .posting-box {
     width: 748px;
     height: 676px;
-    margin: 100px auto;
+    margin: 180px auto 0 auto;
     border-radius: 50px;
     box-shadow: 0 0 10px 2px rgb(0, 0, 0, 0.25);
     display: flex;
@@ -65,19 +109,6 @@
     padding-left: 50px;
 }
 /*post 끝*/
-
-/*list 시작*/
-.reviews {
-    margin: 20px auto 0px auto;
-    width: 95%;
-    max-width: 1200px;
-}
-.reviews-card {
-    border: solid 1px black;
-}
- /*list 끝*/
-
-
 
  .mytitle {
             position: absolute;
