@@ -21,6 +21,12 @@ SECRET_KEY = 'SPARTA'
 def home():
     return render_template('index.html')
 
+# 리뷰 리스트
+@app.route('/index', methods=["GET"])
+def reviews_get():
+    reviews_list = list(db.reviews.find({}, {'_id': False}))
+    return jsonify({'reviews': reviews_list})
+
 @app.route('/tk')
 def tk():
     token_receive = request.cookies.get('mytoken')
@@ -72,26 +78,24 @@ def sign_up():
     db.users.insert_one(doc)
     return jsonify({'result': 'success'})
 
+# 포스트 페이지
+@app.route('/post')
+def post():
+    return render_template('post.html')
+
 # 포스팅
-@app.route('/post', methods=['POST'])
+@app.route('/post/send', methods=['POST'])
 def posting():
-    title_receive = request.form["title_give"]
     desc_receive = request.form["desc_give"]
+    title_receive = request.form["title_give"]
 
     doc = {
-        'title': title_receive,
-        'desc': desc_receive
+        'desc': desc_receive,
+        'title': title_receive
     }
     db.reviews.insert_one(doc)
 
     return jsonify({'msg': '등록 완료!'})
-    err_display()
-
-# 리뷰 리스트
-@app.route('/reviews', methods=["GET"])
-def reviews_get():
-    reviews_list = list(db.reviews.find({}, {'_id': False}))
-    return jsonify({'reviews': reviews_list})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)

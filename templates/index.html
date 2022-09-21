@@ -89,13 +89,13 @@
     </style>
     <script>
         $(document).ready(function () {
-            listing();
+            show_reviews();
         });
 
-        function listing() {
+        function show_reviews() {
             $.ajax({
                 type: 'GET',
-                url: '/hcm',
+                url: '/reviews',
                 data: {},
                 success: function (response) {
                     let rows = response['bugers']
@@ -148,41 +148,41 @@
     </div>
     <div class="register">
            <div class="d-grid gap-2 col-7 mx-auto">
-          <button class="btn btn-warning" type="button">햄버거 기록하기</button>
+          <button onclick="post()" class="btn btn-warning" type="button">햄버거 추천하기</button>
            </div>
     </div>
-<div class=buger>
-    <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-        <div class="card-header">햄버거 브랜드</div>
-        <div class="card-body">
-            <h5 class="card-title">햄버거 이름</h5>
-            <p class="card-text">냠냠 마시따</p>
+    <main class="reviews-list">
+        <div class=buger>
+            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                <div class="card-header">햄버거 브랜드</div>
+                <div class="card-body">
+                    <h5 class="card-title">햄버거 이름</h5>
+                    <p class="card-text">냠냠 마시따</p>
+                </div>
+            </div>
+            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                <div class="card-header">햄버거 브랜드</div>
+                <div class="card-body">
+                    <h5 class="card-title">햄버거 이름</h5>
+                    <p class="card-text">냠냠 마시따</p>
+                </div>
+            </div>
+            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                <div class="card-header">햄버거 브랜드</div>
+                <div class="card-body">
+                    <h5 class="card-title">햄버거 이름</h5>
+                    <p class="card-text">냠냠 마시따</p>
+                </div>
+            </div>
+            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+                <div class="card-header">햄버거 브랜드</div>
+                <div class="card-body">
+                    <h5 class="card-title">햄버거 이름</h5>
+                    <p class="card-text">냠냠 마시따</p>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-        <div class="card-header">햄버거 브랜드</div>
-        <div class="card-body">
-            <h5 class="card-title">햄버거 이름</h5>
-            <p class="card-text">냠냠 마시따</p>
-        </div>
-    </div>
-    <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-        <div class="card-header">햄버거 브랜드</div>
-        <div class="card-body">
-            <h5 class="card-title">햄버거 이름</h5>
-            <p class="card-text">냠냠 마시따</p>
-        </div>
-    </div>
-    <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-        <div class="card-header">햄버거 브랜드</div>
-        <div class="card-body">
-            <h5 class="card-title">햄버거 이름</h5>
-            <p class="card-text">냠냠 마시따</p>
-        </div>
-    </div>
-</div>
-
-
+    </main>
 </body>
 
 </html>

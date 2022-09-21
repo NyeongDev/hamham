@@ -6,10 +6,9 @@ function post() {
     $.ajax({
         type: 'POST',
         // enctype: 'multipart/form-data',
-        url: '/post',
-        data: {title:title, desc:desc},
+        url: '/post/send',
+        data: {title_give:title, desc_give:desc},
         success: function (response) {
-            console.log(response)
             alert(response['msg'])
             window.location.reload()
         }
@@ -17,7 +16,7 @@ function post() {
 }
 
 // 리뷰 리스트
-function listing() {
+function show_reviews() {
     $('#cards-box').empty()
     $.ajax({
         type: 'GET',
@@ -29,12 +28,7 @@ function listing() {
                 let title = rows[i]['title']
                 let desc = rows[i]['desc']
 
-                let temp_html = `<div class="reviews-card">
-                                        <div class="reviews-body">
-                                            <h5 class="reviews-title">${title}</h5>
-                                            <p class="reviews-desc">${desc}</p>
-                                        </div>
-                                    </div>`
+                let temp_html = ``
                 $('#cards-box').append(temp_html)
             }
         }
