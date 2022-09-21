@@ -13,7 +13,7 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 
-    <title>스파르타 피디아</title>
+    <title>햄최몇</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 
@@ -21,7 +21,8 @@
         * {
             font-family: 'Gowun Dodum', sans-serif;
         }
-         .nav {
+
+        .nav {
             position: absolute;
             width: 100%;
             height: 100px;
@@ -31,6 +32,7 @@
             background: #FFFFFF;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         }
+
         .titlepont {
             position: absolute;
             width: auto;
@@ -77,13 +79,13 @@
 
             padding: 100px;
         }
+
         .buger {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             grid-gap: 20px;
             padding: 20px
         }
-
 
 
     </style>
@@ -95,43 +97,37 @@
         function show_reviews() {
             $.ajax({
                 type: 'GET',
-                url: '/reviews',
+                url: '/index',
                 data: {},
                 success: function (response) {
-                    let rows = response['bugers']
-                    for (let i = 0; i < rows.length; i++){
-                        let brand = rows[i]['brand']
-                        let name = rows[i]['name']
-                        let comment = rows[i]['comment']
+                    let rows = response['reviews']
+                    for (let i = 0; i < rows.length; i++) {
+                        let title = rows[i]['title']
+                        let desc = rows[i]['desc']
 
                         let temp_html = `<div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                                            <div class="card-header">${brand}</div>
                                             <div class="card-body">
-                                                <h5 class="card-title">${name}</h5>
-                                                <p class="card-text">${comment}</p>
+                                                <div id="title" class="card-title">${title}</div>
+                                                <div id="desc" class="card-text">${desc}</div>
                                             </div>
                                         </div>`
-                        $('#buger').append(temp_html)
-
+                    $('#reviews_list').append(temp_html)
                     }
-
                 }
             })
         }
 
         function posting() {
-            let brand = $('#brand').val()
-            let name = $('#name').val()
-            let comment = $('#comment').val()
             $.ajax({
-                type: 'POST',
-                url: '/hcm',
-                data: {brand_give:brand, name_give:name, comment_give:comment},
+                    type: 'POST',
+                    url: '/post/send',
+                    data: {title_give: title, desc_give: desc},
                 success: function (response) {
                     alert(response['msg'])
                     windonw.location.reload()
-                }
-            });
+            }
+        })
+            ;
         }
     </script>
 
@@ -139,50 +135,21 @@
 </head>
 
 <body>
-    <div class="nav">
-        <h1 class="titlepont">🍔햄최몇</h1>
-        <h1 class="titlerecom">추천 목록</h1>
+<div class="nav">
+    <h1 class="titlepont">🍔햄최몇</h1>
+    <h1 class="titlerecom">추천 목록</h1>
+</div>
+<div class="mytitle">
+    <h1>🍔햄최몇?</h1>
+</div>
+<div class="register">
+    <div class="d-grid gap-2 col-7 mx-auto">
+        <button onclick="show_reviews()" class="btn btn-warning" type="button">햄버거 추천하기</button>
     </div>
-    <div class="mytitle">
-        <h1>🍔햄최몇?</h1>
-    </div>
-    <div class="register">
-           <div class="d-grid gap-2 col-7 mx-auto">
-          <button onclick="post()" class="btn btn-warning" type="button">햄버거 추천하기</button>
-           </div>
-    </div>
-    <main class="reviews-list">
-        <div class=buger>
-            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                <div class="card-header">햄버거 브랜드</div>
-                <div class="card-body">
-                    <h5 class="card-title">햄버거 이름</h5>
-                    <p class="card-text">냠냠 마시따</p>
-                </div>
-            </div>
-            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                <div class="card-header">햄버거 브랜드</div>
-                <div class="card-body">
-                    <h5 class="card-title">햄버거 이름</h5>
-                    <p class="card-text">냠냠 마시따</p>
-                </div>
-            </div>
-            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                <div class="card-header">햄버거 브랜드</div>
-                <div class="card-body">
-                    <h5 class="card-title">햄버거 이름</h5>
-                    <p class="card-text">냠냠 마시따</p>
-                </div>
-            </div>
-            <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                <div class="card-header">햄버거 브랜드</div>
-                <div class="card-body">
-                    <h5 class="card-title">햄버거 이름</h5>
-                    <p class="card-text">냠냠 마시따</p>
-                </div>
-            </div>
-        </div>
-    </main>
+</div>
+<main class="reviews-list">
+
+</main>
 </body>
 
 </html>
