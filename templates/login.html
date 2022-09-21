@@ -140,7 +140,7 @@
 
     </style>
 
-  <script>
+    <script>
         // {% if msg %}
             //     alert("{{ msg }}")
             // {% endif %}
@@ -173,8 +173,8 @@
                 },
                 success: function (response) {
                     if (response['result'] == 'success') {
-                        $.cookie('mytoken', response['token'], {path: '/'});
-                        window.location.replace("/")
+                        $.cookie('mytoken', response['token'], {path: '/tk'});
+                        window.location.replace("/tk")
                     } else {
                         alert(response['msg'])
                     }
@@ -215,10 +215,12 @@
                 type: "POST",
                 url: "/sign_up/save",
                 data: {
-                    username_give: username,
-                    password_give: password
+                    "username_give": username,
+                    "password_give": password,
                 },
                 success: function (response) {
+                    console.log("success")
+                    console.log(response)
                     alert("회원가입을 축하드립니다!")
                     window.location.replace("/login")
                 }
@@ -251,55 +253,55 @@
 </head>
 <body>
 <!--navbar시작-->
-    <div class="nav">
-        <h1 class="titlepont">🍔햄최몇</h1>
-        <a href="/login" class="titlelogin">로그인 및 회원가입</a>
-    </div>
+<div class="nav">
+    <h1 class="titlepont">🍔햄최몇</h1>
+    <a href="/login" class="titlelogin">로그인 및 회원가입</a>
+</div>
 <!--navbar끝-->
 
-    <!--전체 박스-->
-    <section class="section">
-        <!--input box-->
-        <div class="container-input">
-            <!--id input-->
-            <div class="control has-icons-left">
-                <input id="input-id" class="input-id" type="text" placeholder="아이디">
-                <span class="icon is-small is-left"><i class="fa fa-user"></i></span>
-            </div>
-            <!--id 설정-->
-            <p id="help-id" class="help is-hidden"></p>
-            <p id="help-id-login"></p>
-            <!--pw input-->
-            <div class="control has-icons-left">
-                <input id="input-password" class="input-pw" type="text" placeholder="비밀번호">
-                <span class="icon is-small is-left"><i class="fa fa-lock"></i></span>
-            </div>
-            <!--pw설정-->
-            <p id="help-password" class="help is-hidden"></p>
+<!--전체 박스-->
+<section class="section">
+    <!--input box-->
+    <div class="container-input">
+        <!--id input-->
+        <div class="control has-icons-left">
+            <input id="input-username" class="input-id" type="text" placeholder="아이디">
+            <span class="icon is-small is-left"><i class="fa fa-user"></i></span>
         </div>
+        <!--id 설정-->
+        <p id="help-id" class="help is-hidden"></p>
+        <p id="help-id-login"></p>
+        <!--pw input-->
+        <div class="control has-icons-left">
+            <input id="input-password" class="input-pw" type="text" placeholder="비밀번호">
+            <span class="icon is-small is-left"><i class="fa fa-lock"></i></span>
+        </div>
+        <!--pw설정-->
+        <p id="help-password" class="help is-hidden"></p>
+    </div>
 
+    <!--btn box-->
+    <div id="div-sign-in-or-up" class="container-btn">
+        <!--로그인 버튼-->
+        <button onclick="sign_in()" class="btn-login">로그인</button>
+        <!--회원가입 버튼-->
+        <button onclick="toggle_sign_up()" class="btn-signup">회원가입</button>
+    </div>
+
+    <!--signup box-->
+    <div id="sign-up-box" class="is-hidden">
+        <!--pw 재입력-->
+        <div class="control has-icons-left">
+            <input id="input-password2" class="input-pw" type="password" placeholder="비밀번호 재입력">
+            <span class="icon is-small is-left"><i class="fa fa-lock"></i></span>
+        </div>
+        <p id="help-pw2" class="help-hidden"></p>
         <!--btn box-->
-        <div id="div-sign-in-or-up" class="container-btn">
-            <!--로그인 버튼-->
-            <button onclick="sign_in()" class="btn-login">로그인</button>
-            <!--회원가입 버튼-->
-            <button onclick="toggle_sign_up()" class="btn-signup">회원가입</button>
+        <div class="container-btn">
+            <button onclick="sign_up()" class="btn-signup">회원가입</button>
+            <button onclick="toggle_sign_up()" class="btn-cancel">취소</button>
         </div>
-
-        <!--signup box-->
-        <div id="sign-up-box" class="is-hidden">
-            <!--pw 재입력-->
-            <div class="control has-icons-left">
-                <input id="input-password2" class="input-pw" type="password" placeholder="비밀번호 재입력">
-                <span class="icon is-small is-left"><i class="fa fa-lock"></i></span>
-            </div>
-            <p id="help-pw2" class="help-hidden"></p>
-            <!--btn box-->
-            <div class="container-btn">
-                <button onclick="sign_up()" class="btn-signup">회원가입</button>
-                <button onclick="toggle_sign_up()" class="btn-cancel">취소</button>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 </body>
 </html>
