@@ -1,4 +1,4 @@
-# 패키지
+# 패키지GET / HTTP/1.1" 200 -
 import certifi
 import jwt
 import hashlib
@@ -90,9 +90,9 @@ def posting():
     title_receive = request.form["title_give"]
 
     doc = {
-        'desc': desc_receive,
-        'title': title_receive
-    }
+        'title': title_receive,
+        'desc': desc_receive
+          }
     db.reviews.insert_one(doc)
 
     return jsonify({'msg': '등록 완료!'})
